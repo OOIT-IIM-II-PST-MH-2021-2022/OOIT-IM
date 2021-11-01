@@ -5,6 +5,15 @@ public class Point {
 	private int y;
 	private boolean selected;
 	
+	public Point() {
+		
+	}
+	
+	public Point(int x, int y, boolean selected) {
+		this.x = x;
+		this.y = y;
+		this.selected = selected;
+	}
 	
 	public int getX() {
 		return x;
@@ -28,5 +37,12 @@ public class Point {
 	
 	public void setSelected(boolean selected) {
 		this.selected = selected;
+	}
+	
+	public double distance(Point p) {
+		int dx = this.x - p.x;
+		int dy = this.y - p.y;
+		double d = Math.sqrt(dx*dx+dy*dy);
+		return d;
 	}
 }
