@@ -30,6 +30,25 @@ public class Test {
 		
 		l1.getEndPoint().setY((int)r1.getUpperLeft().distance(r1.getUpperLeft())+r1.area());
 		System.out.println("Vrednost y koordinate krajnje tacke linije l1 je: " + l1.getEndPoint().getY());
+		
+		Circle circle = new Circle();
+		Point center = new Point(50,50,false);
+		circle.setCenter(center);
+		circle.setRadius(10);
+		System.out.println(circle.getRadius());
+		System.out.println(circle.area());
+		
+		//Postaviti vrednost y koordinate centra kruga circle na razliku vrednosti 
+		//poluprecnika kruga circle i x koordinate upperLeft tacke pravougaonika rect
+		Rectangle rect = new Rectangle();
+		rect.setUpperLeft(p1);
+		rect.setHeight(30);
+		rect.setWidth(30);
+		circle.getCenter().setY(circle.getRadius() - rect.getUpperLeft().getX());
+		
+		//Postaviti vrednost x koordinate upperLeft tacke pravougaonika rect na razliku vrednosti
+		//povrsine kruga circle i y koordinate centra kruga circle
+		rect.getUpperLeft().setX((int)circle.area() - circle.getCenter().getY());
 	}
 
 }
