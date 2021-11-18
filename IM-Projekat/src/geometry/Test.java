@@ -4,6 +4,9 @@ public class Test {
 
 	public static void main(String[] args) {
 		Point p1 = new Point();
+		System.out.println("X je: " + p1.getX() + " Y je : " + p1.getY() + " selected je: "+ p1.isSelected());
+		
+		
 		p1.setX(20);
 		Point p2 = new Point();
 		System.out.println(p1.getX());
@@ -49,6 +52,31 @@ public class Test {
 		//Postaviti vrednost x koordinate upperLeft tacke pravougaonika rect na razliku vrednosti
 		//povrsine kruga circle i y koordinate centra kruga circle
 		rect.getUpperLeft().setX((int)circle.area() - circle.getCenter().getY());
+		
+		
+		//Vezbe 4
+		Line l3 = new Line();
+		System.out.println("Pocetna tacka linije l3 je: " +l3.getStartPoint() + 
+				" a krajnja tacka linije l3 je :" + l3.getEndPoint());
+		System.out.println(p1.toString());
+		System.out.println(l1.toString());
+		System.out.println(r1.toString());
+		System.out.println(r1);
+		System.out.println(circle);
+		
+		//Vezbe URIS
+		p1.setX(15);
+		p1.setY(10);
+		p2.setX(15);
+		p2.setY(10);
+		System.out.println(p1.equals(p2));
+		l3.setStartPoint(p2);
+		l3.setEndPoint(p1);
+		System.out.println(l1.equals(l3));
+		Rectangle r2 = new Rectangle(p1, 20, 20);
+		System.out.println(r1==r2);
+		System.out.println(r1.equals(r2));
+		
 	}
 
 }
