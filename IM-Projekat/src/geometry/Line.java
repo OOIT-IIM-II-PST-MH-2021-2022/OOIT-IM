@@ -28,6 +28,11 @@ public class Line {
 		return false;
 	}
 	
+	public boolean contains(int x, int y) {
+		Point klik = new Point(x,y);
+		return (this.startPoint.distance(klik) + this.endPoint.distance(klik) - length()) <= 2;
+	}
+	
 	
 	//Konstruktori
 	
