@@ -85,6 +85,11 @@ public class Test {
 		Circle c2 = new Circle(new Point(30,30), 15);
 		System.out.println(c2.contains(50, 40));
 		
+		Donut d1 = new Donut(new Point(10,10), 10, 5);
+		System.out.println(d1.toString());
+		Donut d2 = new Donut(new Point(10,10), 10, 5);
+		System.out.println(d1.equals(d2));
+		System.out.println(d1.toString());
 	}
 
 }
