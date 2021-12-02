@@ -1,5 +1,7 @@
 package geometry;
 
+import java.awt.Graphics;
+
 public class Test {
 
 	public static void main(String[] args) {
@@ -19,7 +21,7 @@ public class Test {
 		
 		//System.out.println(p1.distance(p2));
 		Line l1 = new Line();
-		Line l2 = new Line();
+		//Line l2 = new Line();
 		//l1.setStartPoint(p2);
 		//l1.setEndPoint(p1);
 		//System.out.println(l1.length());
