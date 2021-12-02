@@ -1,9 +1,8 @@
 package geometry;
 
-public class Line {
+public class Line extends Shape {
 	private Point startPoint;
 	private Point endPoint;
-	private boolean selected;
 	
 	
 	//Length
@@ -28,6 +27,7 @@ public class Line {
 		return false;
 	}
 	
+	@Override
 	public boolean contains(int x, int y) {
 		Point klik = new Point(x,y);
 		return (this.startPoint.distance(klik) + this.endPoint.distance(klik) - length()) <= 2;
@@ -66,14 +66,5 @@ public class Line {
 	public void setEndPoint(Point endPoint) {
 		this.endPoint = endPoint;
 	}
-	
-	public boolean isSelected() {
-		return selected;
-	}
-	
-	public void setSelected(boolean selected) {
-		this.selected = selected;
-	}
-	
 	
 }

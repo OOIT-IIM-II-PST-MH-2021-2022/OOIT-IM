@@ -2,7 +2,6 @@ package geometry;
 public class Donut extends Circle {
 
 	private int innerRadius;
-	private boolean selected;
 	
 	public Donut() {
 		
@@ -25,6 +24,7 @@ public class Donut extends Circle {
 		return outerCircle - innerCircle;
 	}
 	
+	@Override
 	public boolean contains(int x, int y) {
 		double dFromCenter = getCenter().distance(new Point(x,y));
 		return dFromCenter >= this.innerRadius && dFromCenter <= getRadius();
@@ -52,6 +52,14 @@ public class Donut extends Circle {
 	
 	public String toString() {
 		return "Center: ("+ getCenter().getX()+", "+getCenter().getY() +"), " + "outer radius = "+ getRadius()+ ", inner radius = " + this.innerRadius; 
+	}
+
+	public int getInnerRadius() {
+		return innerRadius;
+	}
+
+	public void setInnerRadius(int innerRadius) {
+		this.innerRadius = innerRadius;
 	}
 	
 }
