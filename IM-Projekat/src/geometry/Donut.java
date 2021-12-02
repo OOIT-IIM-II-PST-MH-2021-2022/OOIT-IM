@@ -1,4 +1,7 @@
 package geometry;
+
+import java.awt.Graphics;
+
 public class Donut extends Circle {
 
 	private int innerRadius;
@@ -62,4 +65,14 @@ public class Donut extends Circle {
 		this.innerRadius = innerRadius;
 	}
 	
+	public void draw(Graphics g) {
+		super.draw(g);
+		g.drawOval(this.getCenter().getX() - this.innerRadius, this.getCenter().getY() - this.innerRadius, this.innerRadius*2, this.innerRadius*2);
+		if(this.isSelected()) {
+			g.drawRect(this.getCenter().getX() - this.innerRadius - 3, this.getCenter().getY() - 3, 6, 6);
+			g.drawRect(this.getCenter().getX() - 3, this.getCenter().getY() + this.innerRadius - 3, 6, 6);
+			g.drawRect(this.getCenter().getX() + this.innerRadius - 3, this.getCenter().getY() - 3, 6, 6);
+			g.drawRect(this.getCenter().getX() - 3, this.getCenter().getY() - this.innerRadius - 3, 6, 6);
+		}
+	}
 }

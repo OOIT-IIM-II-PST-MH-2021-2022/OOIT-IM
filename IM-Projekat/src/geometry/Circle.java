@@ -1,5 +1,7 @@
 package geometry;
 
+import java.awt.Graphics;
+
 public class Circle extends Shape {
 
 	private Point center;
@@ -68,5 +70,15 @@ public class Circle extends Shape {
 
 	public void setRadius(int radius) {
 		this.radius = radius;
+	}
+	
+	public void draw(Graphics g) {
+		g.drawOval(this.getCenter().getX() - this.radius, this.getCenter().getY() - this.radius, this.radius * 2, this.radius*2);
+		if(this.isSelected()) {
+			g.drawRect(this.getCenter().getX() - this.radius - 3, this.getCenter().getY() - 3, 6, 6);
+			g.drawRect(this.getCenter().getX() - 3, this.getCenter().getY() + this.radius - 3, 6, 6);
+			g.drawRect(this.getCenter().getX() + this.radius - 3, this.getCenter().getY() - 3, 6, 6);
+			g.drawRect(this.getCenter().getX() - 3, this.getCenter().getY() - this.radius - 3, 6, 6);
+		}
 	}
 }

@@ -1,5 +1,7 @@
 package geometry;
 
+import java.awt.Graphics;
+
 public class Rectangle extends Shape {
 	private Point upperLeft;
 	private int width;
@@ -75,5 +77,15 @@ public class Rectangle extends Shape {
 	}
 	public void setHeight(int height) {
 		this.height = height;
+	}
+	
+	public void draw(Graphics g) {
+		g.drawRect(this.upperLeft.getX(), this.upperLeft.getY(), this.width, this.height);
+		if(this.isSelected()) {
+			g.drawRect(this.upperLeft.getX() - 3, this.upperLeft.getY() - 3, 6, 6);
+			g.drawRect(this.upperLeft.getX() + this.width - 3, this.upperLeft.getY() - 3, 6, 6);
+			g.drawRect(this.upperLeft.getX() - 3, this.upperLeft.getY() + this.height - 3, 6, 6);
+			g.drawRect(this.upperLeft.getX() + this.width - 3, this.upperLeft.getY() + this.height - 3, 6, 6);
+		}
 	}
 }

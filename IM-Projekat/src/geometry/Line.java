@@ -1,5 +1,7 @@
 package geometry;
 
+import java.awt.Graphics;
+
 public class Line extends Shape {
 	private Point startPoint;
 	private Point endPoint;
@@ -65,6 +67,14 @@ public class Line extends Shape {
 	
 	public void setEndPoint(Point endPoint) {
 		this.endPoint = endPoint;
+	}
+	
+	public void draw(Graphics g) {
+		g.drawLine(this.startPoint.getX(), this.startPoint.getY(), this.endPoint.getX(), this.endPoint.getY());
+		if(this.isSelected()) {
+			g.drawRect(this.startPoint.getX()-3, this.startPoint.getY()-3, 6, 6);
+			g.drawRect(this.endPoint.getX() - 3, this.endPoint.getY() - 3, 6, 6);
+		}
 	}
 	
 }
