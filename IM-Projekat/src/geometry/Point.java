@@ -56,6 +56,7 @@ public class Point extends Shape {
 	public int compareTo(Object o) {
 		if(o instanceof Point) {
 			Point coordinateStart = new Point(0,0);
+			System.out.println("Uporedjuje elemente");
 			return (int)(distance(coordinateStart) - ((Point)o).distance(coordinateStart));
 		}
 		return 0;
