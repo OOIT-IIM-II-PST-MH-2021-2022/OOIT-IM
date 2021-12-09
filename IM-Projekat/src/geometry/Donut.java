@@ -6,20 +6,6 @@ public class Donut extends Circle {
 
 	private int innerRadius;
 	
-	public Donut() {
-		
-	}
-	
-	public Donut(Point center, int radius, int innerRadius) {
-		super(center, radius);
-		this.innerRadius = innerRadius;
-	}
-	
-	public Donut(Point center, int radius, int innerRadius, boolean selected) {
-		this(center, radius, innerRadius);
-		this.selected = selected;
-	}
-	
 	@Override
 	public double area() {
 		double outerCircle = super.area();
@@ -56,7 +42,30 @@ public class Donut extends Circle {
 	public String toString() {
 		return "Center: ("+ getCenter().getX()+", "+getCenter().getY() +"), " + "outer radius = "+ getRadius()+ ", inner radius = " + this.innerRadius; 
 	}
-
+	
+	@Override
+	public int compareTo(Object o) {
+		if(o instanceof Donut) {
+			return (int)((area() - ((Donut)o).area()));
+		}
+		return 0;
+	}
+	
+	//Konstruktori
+	public Donut() {
+		
+	}
+	
+	public Donut(Point center, int radius, int innerRadius) {
+		super(center, radius);
+		this.innerRadius = innerRadius;
+	}
+	
+	public Donut(Point center, int radius, int innerRadius, boolean selected) {
+		this(center, radius, innerRadius);
+		this.selected = selected;
+	}
+	
 	public int getInnerRadius() {
 		return innerRadius;
 	}

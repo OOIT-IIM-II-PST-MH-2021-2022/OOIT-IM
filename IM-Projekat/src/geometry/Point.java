@@ -34,6 +34,34 @@ public class Point extends Shape {
 		return distance(new Point(x,y)) <= 2 ;
 	}
 	
+	@Override
+	public void moveTo(int x, int y) {
+		setX(x);
+		setY(y);
+		/*
+		 * this.x = x;
+		 * this.y = y;
+		 */
+		
+	}
+
+	@Override
+	public void moveBy(int byX, int byY) {
+		x += byX;
+		//this.x = x + byX
+		y += byY;
+	}
+	
+	@Override
+	public int compareTo(Object o) {
+		if(o instanceof Point) {
+			Point coordinateStart = new Point(0,0);
+			return (int)(distance(coordinateStart) - ((Point)o).distance(coordinateStart));
+		}
+		return 0;
+	}
+
+	
 	//Konstruktori
 	public Point() {
 		
@@ -74,5 +102,7 @@ public class Point extends Shape {
 			g.drawRect(this.x - 3, this.y -3, 6, 6);
 		}
 	}
+
+	
 	
 }

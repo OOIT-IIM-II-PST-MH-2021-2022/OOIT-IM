@@ -80,7 +80,7 @@ public class Test {
 		System.out.println(r1.equals(r2));*/
 		//Vezbe 5
 		
-		l1.setStartPoint(new Point(10,30));
+		/*l1.setStartPoint(new Point(10,30));
 		l1.setEndPoint(new Point(30,30));
 		System.out.println(l1.length());
 		System.out.println(l1.contains(20, 30));
@@ -91,7 +91,11 @@ public class Test {
 		System.out.println(d1.toString());
 		Donut d2 = new Donut(new Point(10,10), 10, 5);
 		System.out.println(d1.equals(d2));
-		System.out.println(d1.toString());
+		System.out.println(d1.toString());*/
+		
+		//Vezbe 7
+		Point p6 = new Point(60,60);
+		System.out.println(p6.compareTo(new Point(70,80)));
 	}
 
 }

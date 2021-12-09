@@ -41,6 +41,26 @@ public class Circle extends Shape {
 		return contains(p.getX(), p.getY());
 	}
 	
+	@Override
+	public void moveTo(int x, int y) {
+		center.moveTo(x, y);
+		
+	}
+
+	@Override
+	public void moveBy(int byX, int byY) {
+		center.moveBy(byX, byY);
+	}
+	
+	@Override
+	public int compareTo(Object o) {
+		if(o instanceof Circle) {
+			return (int)(area() - ((Circle)o).area());
+		}
+		return 0;
+	}
+
+	
 	//Konstruktori
 	public Circle() {
 		
@@ -81,4 +101,7 @@ public class Circle extends Shape {
 			g.drawRect(this.getCenter().getX() - 3, this.getCenter().getY() - this.radius - 3, 6, 6);
 		}
 	}
+
+	
+	
 }

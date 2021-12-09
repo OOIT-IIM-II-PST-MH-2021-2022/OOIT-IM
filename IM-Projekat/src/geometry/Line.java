@@ -35,6 +35,25 @@ public class Line extends Shape {
 		return (this.startPoint.distance(klik) + this.endPoint.distance(klik) - length()) <= 2;
 	}
 	
+	@Override
+	public void moveTo(int x, int y) {
+		// TODO Auto-generated method stub
+	}
+
+	@Override
+	public void moveBy(int byX, int byY) {
+		startPoint.moveBy(byX, byY);
+		endPoint.moveBy(byX, byY);
+	}
+	
+	@Override
+	public int compareTo(Object o) {
+		if(o instanceof Line) {
+			return (int) (length() - ((Line)o).length());
+		}
+		return 0;
+	}
+	
 	
 	//Konstruktori
 	
@@ -76,5 +95,6 @@ public class Line extends Shape {
 			g.drawRect(this.endPoint.getX() - 3, this.endPoint.getY() - 3, 6, 6);
 		}
 	}
+
 	
 }
