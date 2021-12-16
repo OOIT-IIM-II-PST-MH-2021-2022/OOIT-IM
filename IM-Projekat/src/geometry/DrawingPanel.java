@@ -1,8 +1,8 @@
 package geometry;
 
 import java.awt.Graphics;
-import java.lang.reflect.Array;
-import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.Iterator;
 
 import javax.swing.JPanel;//crtl+shift+o
 
@@ -54,7 +54,7 @@ public class DrawingPanel extends JPanel {
 		/*Shape kao apstraktna klasa sadrži deklaraciju draw metode, pa kompajler dozvoljava poziv ove metode
 		 nad elementima niza koji je deklarisan kao niz tipa Shape (nije potrebno DOWNCAST-ovanje)
 		*/
-		Shape[] shapes = new Shape[5];
+		/*Shape[] shapes = new Shape[5];
 		shapes[0] = line;
 		shapes[1] = point;
 		shapes[2] = circle;
@@ -62,8 +62,23 @@ public class DrawingPanel extends JPanel {
 		shapes[4] = rect;
 		for(int i=0; i<shapes.length;i++) {
 			shapes[i].draw(g);
-		}
+		}*/
 		
+		ArrayList<Shape> listOfShapes = new ArrayList<Shape>();
+		listOfShapes.add(new Point(20,20));
+		listOfShapes.add(new Line(new Point(30,30), new Point(50,50)));
+		//listOfShapes.get(1).draw(g);
+	
+		Iterator<Shape> it = listOfShapes.iterator();
+		while(it.hasNext()) {
+			Shape shape = it.next();
+			shape.moveBy(10, 0);
+			if(shape instanceof Line || shape instanceof Point) {
+				shape.draw(g);
+			}
+			/*it.next().moveBy(10, 0);
+			it.next().draw(g);*/
+		}
 		
 		
 	}
