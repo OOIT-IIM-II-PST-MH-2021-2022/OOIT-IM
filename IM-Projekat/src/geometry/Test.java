@@ -1,6 +1,9 @@
 package geometry;
 
-import java.awt.Graphics;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Iterator;
 
 public class Test {
 
@@ -96,6 +99,138 @@ public class Test {
 		//Vezbe 7
 		Point p6 = new Point(60,60);
 		System.out.println(p6.compareTo(new Point(70,80)));
+		
+		//Vezbe 7 URIS
+		/*DINAMICKO (KASNO) POVEZIVANJE - odnosi se na povezivanje naziva metode sa implementacijom (dešava se tek prilikom izvršenja programa)
+		 Omoguæava da se u vreme pisanja programa neka promenljiva deklariše jednim tipom
+		 dok se inicijalizacija vrši pozivom konstruktora nekog drugog tipa (neke klase koja je izvedena):
+		*/
+		Circle donut1 = new Donut(new Point(20,20), 10, 5);
+		System.out.println(donut1.area());
+		/*
+		 Kompajler posmatra kojim tipom je promenljiva deklarisana i dozvoljava poziv metoda koje postoje u toj klasi
+		 (iz primera - u klasi Circle postoji metoda area)
+		 Interpreter prilikom izvršenja posmatra kako je promenljiva inicijalizovana i izvršiæe se implementacija metode one klase kojom je promenljiva inicijalizovana 
+		 (iz primera - area metoda klase Donut)
+		 */
+		
+		/*Nizovi su statièke kolekcije koje omoguæavaju upravljanje sa više objekata istog tipa pomoæu jedne promenljive
+		 Prilikom deklaracije niza navodi se tip elemenata koje æe sadržati, a prilikom kreiranja (pomoæu operatora new) se navodi
+		 maksimalna dužina niza koja se dalje u kodu ne može menjati
+		int[] array = new int[10];
+		System.out.println(array[0]); //int je primitivni tip podatka, kreira se niz èiji elementi imaju podrazumevanu vrednost int-a, 0
+		array[0] = 3;
+		System.out.println(array[0]);
+		*/
+		Point p1 = new Point(40,40);
+		Point p2 = new Point(20,20);
+		Point p3 = new Point(30,30);
+		Point[] pointArray = new Point[3];
+		//System.out.println(pointArray[0]); //Point nije primitivni tip podatka, kreira se niz èiji elementi imaju null vrednost
+		pointArray[0] = p1;
+		pointArray[1] = p2;
+		pointArray[2] = p3;
+		for(int i=0; i<pointArray.length; i++) {
+			System.out.println(pointArray[i]);
+		}
+		/*Arrays klasa je definisana u java.utils paketu i sadrži statièku sort metodu <public static void sort(Object[] a)>
+		koja sortira elemente niza, pri èemu tip objekata koji se èuva u nizu mora da implementira Comparable interfejs -
+		sort metoda sortira niz uporeðivajuæi elemente pozivom compareTo metode  
+		*/
+		Arrays.sort(pointArray);
+		for(int i=0; i<pointArray.length; i++) {
+			System.out.println(pointArray[i]);
+		}
+		
+		//Vezbe 8 OOIT i URIS
+		//Dinamicke kolekcije ArrayList i HashMap
+		ArrayList<Shape> shapes = new ArrayList<Shape>();
+		shapes.add(new Point(10,10));
+		System.out.println("**************************");
+		shapes.add(0, new Point(20,20));
+		shapes.add(new Point(30,30));
+		shapes.remove(0);
+		shapes.add(2, new Point(40,40));
+		shapes.remove(1);
+		Iterator<Shape> it = shapes.iterator();
+		while(it.hasNext()) {
+			System.out.println(it.next());
+		}
+		
+		HashMap<String, Shape> hashMap = new HashMap<String, Shape>();
+		hashMap.put("Tacka 1", new Point(1,1));
+		System.out.println();
+		System.out.println(hashMap.get("Tacka 1"));
+		hashMap.put("Tacka 1", new Point(2,2)); //overwrite, u hash mapi su vrednosti jedinstvenog kljuca
+		System.out.println(hashMap.get("Tacka 1"));
+		hashMap.remove("Tacka 1");
+		hashMap.put("Tacka 1", new Point(3,3));
+		for(Shape s: hashMap.values()) {
+			System.out.println(s.toString());
+		}
+		
+		//Izuzeci i try catch blok
+		/*int[] intArray = new int[1];
+		try {
+			System.out.println(intArray[1]);
+			System.out.println("Ispis nakon izuzetka u try bloku");
+		} catch(Exception e) {
+			System.out.println("Ispis nakon izuzetka");
+		}*/
+		//System.out.println(intArray[1]);
+		//System.out.println("Ispis nakon izuzetka");
+		
+		Circle circle = new Circle();
+		try {
+			circle.setRadius(-9);
+		}catch(Exception e) {
+			e.printStackTrace();
+			System.out.println("Ispis nakon stack trace-a");
+		} finally {
+			System.out.println("Finally se uvek izvrsava");
+		}
+		
+		/* Switch case
+		String day = "3";
+		switch(day) {
+			case "1":
+				System.out.println("Monday");
+				System.out.println("Today is Monday");
+				break;
+			case "2":
+				System.out.println("Tuesday");
+				break;
+			default:
+				System.out.println("Nedozvoljena vrednost");
+		}*/
+		
+		//Break i continue u petljama
+		for(int i=0; i<10; i++) {
+			if(i == 4) {
+				break;
+			}
+			System.out.println(i);
+		}
+		System.out.println("Ispis nakon petlje");
+		for(int i=0; i<10; i++) {
+			if(i == 4) {
+				continue;
+			}
+			System.out.println(i);
+			//System.out.println("Ispis");
+		}
+		
+		int i = 5;
+		while(i > 0) {
+			if(i == 5) {
+				i-=1;
+			}else if(i == 3) {
+				i--;
+				continue;
+			}
+			System.out.println(i);
+			i--;
+		}
 	}
 
 }
