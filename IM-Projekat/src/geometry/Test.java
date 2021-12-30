@@ -101,24 +101,24 @@ public class Test {
 		System.out.println(p6.compareTo(new Point(70,80)));
 		
 		//Vezbe 7 URIS
-		/*DINAMICKO (KASNO) POVEZIVANJE - odnosi se na povezivanje naziva metode sa implementacijom (dešava se tek prilikom izvršenja programa)
-		 Omoguæava da se u vreme pisanja programa neka promenljiva deklariše jednim tipom
-		 dok se inicijalizacija vrši pozivom konstruktora nekog drugog tipa (neke klase koja je izvedena):
+		/*DINAMICKO (KASNO) POVEZIVANJE - odnosi se na povezivanje naziva metode sa implementacijom (deï¿½ava se tek prilikom izvrï¿½enja programa)
+		 Omoguï¿½ava da se u vreme pisanja programa neka promenljiva deklariï¿½e jednim tipom
+		 dok se inicijalizacija vrï¿½i pozivom konstruktora nekog drugog tipa (neke klase koja je izvedena):
 		*/
 		Circle donut1 = new Donut(new Point(20,20), 10, 5);
 		System.out.println(donut1.area());
 		/*
 		 Kompajler posmatra kojim tipom je promenljiva deklarisana i dozvoljava poziv metoda koje postoje u toj klasi
 		 (iz primera - u klasi Circle postoji metoda area)
-		 Interpreter prilikom izvršenja posmatra kako je promenljiva inicijalizovana i izvršiæe se implementacija metode one klase kojom je promenljiva inicijalizovana 
+		 Interpreter prilikom izvrï¿½enja posmatra kako je promenljiva inicijalizovana i izvrï¿½iï¿½e se implementacija metode one klase kojom je promenljiva inicijalizovana 
 		 (iz primera - area metoda klase Donut)
 		 */
 		
-		/*Nizovi su statièke kolekcije koje omoguæavaju upravljanje sa više objekata istog tipa pomoæu jedne promenljive
-		 Prilikom deklaracije niza navodi se tip elemenata koje æe sadržati, a prilikom kreiranja (pomoæu operatora new) se navodi
-		 maksimalna dužina niza koja se dalje u kodu ne može menjati
+		/*Nizovi su statiï¿½ke kolekcije koje omoguï¿½avaju upravljanje sa viï¿½e objekata istog tipa pomoï¿½u jedne promenljive
+		 Prilikom deklaracije niza navodi se tip elemenata koje ï¿½e sadrï¿½ati, a prilikom kreiranja (pomoï¿½u operatora new) se navodi
+		 maksimalna duï¿½ina niza koja se dalje u kodu ne moï¿½e menjati
 		int[] array = new int[10];
-		System.out.println(array[0]); //int je primitivni tip podatka, kreira se niz èiji elementi imaju podrazumevanu vrednost int-a, 0
+		System.out.println(array[0]); //int je primitivni tip podatka, kreira se niz ï¿½iji elementi imaju podrazumevanu vrednost int-a, 0
 		array[0] = 3;
 		System.out.println(array[0]);
 		*/
@@ -126,16 +126,16 @@ public class Test {
 		Point p2 = new Point(20,20);
 		Point p3 = new Point(30,30);
 		Point[] pointArray = new Point[3];
-		//System.out.println(pointArray[0]); //Point nije primitivni tip podatka, kreira se niz èiji elementi imaju null vrednost
+		//System.out.println(pointArray[0]); //Point nije primitivni tip podatka, kreira se niz ï¿½iji elementi imaju null vrednost
 		pointArray[0] = p1;
 		pointArray[1] = p2;
 		pointArray[2] = p3;
 		for(int i=0; i<pointArray.length; i++) {
 			System.out.println(pointArray[i]);
 		}
-		/*Arrays klasa je definisana u java.utils paketu i sadrži statièku sort metodu <public static void sort(Object[] a)>
-		koja sortira elemente niza, pri èemu tip objekata koji se èuva u nizu mora da implementira Comparable interfejs -
-		sort metoda sortira niz uporeðivajuæi elemente pozivom compareTo metode  
+		/*Arrays klasa je definisana u java.utils paketu i sadrï¿½i statiï¿½ku sort metodu <public static void sort(Object[] a)>
+		koja sortira elemente niza, pri ï¿½emu tip objekata koji se ï¿½uva u nizu mora da implementira Comparable interfejs -
+		sort metoda sortira niz uporeï¿½ivajuï¿½i elemente pozivom compareTo metode  
 		*/
 		Arrays.sort(pointArray);
 		for(int i=0; i<pointArray.length; i++) {
@@ -231,6 +231,7 @@ public class Test {
 			System.out.println(i);
 			i--;
 		}
+		
 	}
 
 }
